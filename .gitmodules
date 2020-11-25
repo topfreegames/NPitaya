@@ -1,6 +1,0 @@
-[submodule "examples/c/nanopb"]
-	path = examples/c/nanopb
-	url = https://github.com/nanopb/nanopb
-[submodule "src/pitaya_core/pitaya-protos"]
-	path = src/pitaya_core/pitaya-protos
-	url = https://github.com/topfreegames/pitaya-protos

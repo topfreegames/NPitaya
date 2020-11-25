@@ -1,6 +1,0 @@
-server_kind = "csharp"
-[nats]
-max_rpcs_queued = 500
-[metrics]
-enabled = true
-url = "127.0.0.1:8080"
