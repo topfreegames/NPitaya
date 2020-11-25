@@ -1,27 +1,20 @@
-start-test-deps:
-	@docker-compose up -d
-
-stop-test-deps:
-	@docker-compose down
-
-test: start-test-deps
-	@dotnet test NPitaya.Tests
-	@$(MAKE) stop-test-deps
-
-.PHONY: clean
-clean:
-	@dotnet clean NPitaya
-	@rm -rf NPitaya/bin/Release
-	@rm -rf NPitaya/bin/Debug
+.PHONY: setup
+setup:
+	@git submodule update --init
+	@cd lib/pitaya-rs; git submodule update --init; cargo build --release
 
 .PHONY: build
 build: clean
-	@dotnet build NPitaya --configuration Release
+	@dotnet build
 
 .PHONY: pack
 pack: build
 	@dotnet pack NPitaya --configuration Release
 
+.PHONY: clean
+clean:
+	@dotnet clean
+
 .PHONY: push
-push:
+publish:
 	@dotnet nuget push NPitaya/bin/Release/*.nupkg -k $(NUGET_API_KEY) -s https://api.nuget.org/v3/index.json

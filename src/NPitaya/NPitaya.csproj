@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="../netfx.props" />
+    <Import Project="netfx.props" />
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <PackageId>NPitaya</PackageId>
@@ -29,15 +29,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Protobuf CompileOutputs="false" Include="../../pitaya-protos/*.proto" OutputDir="./src/gen" PrivateAssets="All" />
+        <Protobuf CompileOutputs="false" Include="../../lib/pitaya-protos/*.proto" OutputDir="./src/gen" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>
         <!-- Copy the native libraries to the .nupkg so that they are included on the project that imports NPitaya -->
-        <Content Include="../../target/release/libpitaya.so">
+        <Content Include="../../lib/pitaya-rs/target/release/libpitaya.so" Condition=" '$(OS)' == 'Linux'">
             <PackagePath>runtimes/linux-x64/native</PackagePath>
         </Content>
-        <Content Include="../../target/release/libpitaya.dylib">
+        <Content Include="../../lib/pitaya-rs/target/release/libpitaya.dylib" Condition=" '$(OS)' == 'OSX'">
             <PackagePath>runtimes/osx-x64/native</PackagePath>
         </Content>
         <Content Include="../unity-metas/*.meta">

@@ -1,0 +1,6 @@
+[submodule "lib/pitaya-rs"]
+	path = lib/pitaya-rs
+	url = git@github.com:tfgco/pitaya-rs.git
+[submodule "lib/pitaya-protos"]
+	path = lib/pitaya-protos
+	url = git@github.com:topfreegames/pitaya-protos.git
