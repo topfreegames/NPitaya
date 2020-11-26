@@ -15,11 +15,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NPitaya\NPitaya.csproj" />
+      <ProjectReference Include="../src/NPitaya/NPitaya.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\..\precompiled\libpitaya_cluster.bundle">
+      <Content Include="../lib/pitaya-rs/target\libpitaya_cluster.bundle">
         <Link>libpitaya_cluster.bundle</Link>
       </Content>
       <Content Include="..\..\precompiled\libpitaya_cluster.dylib">
